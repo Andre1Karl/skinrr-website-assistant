@@ -9,7 +9,7 @@ const header=el('header','chat-header'),mark=el('div','brand-icon','R'),heading=
 const reset=el('button','icon-button','↻');reset.type='button';reset.setAttribute('aria-label','New conversation');reset.title='New conversation';const close=el('button','icon-button','×');close.type='button';close.setAttribute('aria-label','Close assistant');header.append(mark,heading,reset,close);
 const status=el('p','status','Checking local model…');status.setAttribute('role','status');
 const messages=el('div','messages');messages.setAttribute('aria-label','Conversation');messages.setAttribute('role','log');messages.setAttribute('aria-live','polite');
-const footer=el('footer','chat-footer'),form=el('form','compose'),input=el('input');input.placeholder='Ask a question…';input.setAttribute('aria-label','Message the assistant');input.maxLength=1200;input.autocomplete='off';const send=el('button','send','↑');send.type='submit';send.setAttribute('aria-label','Send message');form.append(input,send);footer.append(form,el('p','chat-disclosure','Local virtual assistant · General information only. Please don’t share sensitive medical details. Chats stay in memory until this page is closed.'));
+const footer=el('footer','chat-footer'),form=el('form','compose'),input=el('input');input.placeholder='Ask a question…';input.setAttribute('aria-label','Message the assistant');input.maxLength=1200;input.autocomplete='off';const send=el('button','send','↑');send.type='submit';send.setAttribute('aria-label','Send message');form.append(input,send);footer.append(form,el('p','chat-disclosure','Virtual assistant · General information only. Please don’t share sensitive medical details. Chats stay in memory until this page is closed.'));
 panel.append(header,status,messages,footer);document.body.append(panel);
 let config,history=[],busy=false,controller,epoch=0;
 function resizeFrame(open){if(embedded)parent.postMessage({type:'skinrr:size',open},'*');}
@@ -40,7 +40,7 @@ const response=await fetch(previewOnly?new URL('brand.public.json',scriptUrl):ap
  for(const [key,value]of Object.entries(config.colors)){document.documentElement.style.setProperty({'background':'--bg','text':'--ink','accent':'--accent'}[key],value);}
  document.documentElement.style.setProperty('--body',config.fonts.body);document.documentElement.style.setProperty('--display',config.fonts.display);
  if(config.logo){const img=el('img');img.src=new URL(config.logo,scriptUrl);img.alt=config.businessName;mark.classList.add('with-logo');mark.replaceChildren(img);}welcome();if(previewOnly){showPreview();return;}
- const health=await fetch(api+'/api/health');const data=await health.json();status.textContent=data.message;if(!data.ok)status.classList.add('error');
+ const health=await fetch(api+'/api/health');const data=await health.json();status.textContent=data.message;if(!data.ok){status.classList.add('error');addSources(messages,config.locations.map(l=>({title:'Contact '+l.name,url:l.contactUrl})));}
  }catch{status.textContent='Cannot reach the assistant backend. Start the Node server and reload this page.';status.classList.add('error');}}
 init();
 if(window.visualViewport){const fit=()=>{if(embedded)return;if(!panel.hidden&&innerWidth<=600){panel.style.height=Math.max(220,visualViewport.height-16)+'px';panel.style.bottom=Math.max(8,innerHeight-visualViewport.height-visualViewport.offsetTop+8)+'px';}else{panel.style.height='';panel.style.bottom='';}};visualViewport.addEventListener('resize',fit);visualViewport.addEventListener('scroll',fit);launcher.addEventListener('click',fit);}
