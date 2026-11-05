@@ -1,8 +1,10 @@
 # Skin R&R Website Assistant
 
-Live preview: https://Andre1Karl.github.io/skinrr-website-assistant/
+Primary website: https://skinrr-website-assistant.onrender.com/
 
-The preview includes the supplied Skin R&R logo and a responsive, text-only widget. **AI chat is offline on GitHub Pages** because Pages only hosts static files. It does not run the Node.js backend or Ollama. No AI responses are simulated and no paid provider is used.
+GitHub interface: https://Andre1Karl.github.io/skinrr-website-assistant/
+
+The project includes the supplied Skin R&R logo and a responsive, text-only widget. GitHub Pages serves the interface, which connects to the Node backend on Render. The user explicitly approved Cloudflare Workers AI as the hosted provider. Keep Workers Free: there is a daily allowance, explicit quota errors and no paid fallback. Ollama remains an alternative local mode. Credentials are configured only in Render's server environment. No AI responses are simulated.
 
 ## Complete working source
 
