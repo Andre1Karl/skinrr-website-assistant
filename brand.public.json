@@ -17,6 +17,64 @@
     "Find a location",
     "How do I book a consultation?"
   ],
+  "chatChoices": {
+    "locationsLabel": "Choose a location",
+    "treatmentsLabel": "Explore a treatment",
+    "treatments": [
+      {
+        "label": "Injectables",
+        "message": "Tell me about injectables."
+      },
+      {
+        "label": "Facials",
+        "message": "Tell me about facials."
+      },
+      {
+        "label": "Chemical peels",
+        "message": "Tell me about chemical peels."
+      },
+      {
+        "label": "Microneedling",
+        "message": "Tell me about microneedling."
+      },
+      {
+        "label": "Laser skin treatments",
+        "message": "Tell me about Aerolase skin resurfacing."
+      },
+      {
+        "label": "Laser hair removal",
+        "message": "Tell me about laser hair removal."
+      },
+      {
+        "label": "Facial enhancements",
+        "message": "Tell me about facial enhancements."
+      },
+      {
+        "label": "Waxing, lash & brow",
+        "message": "Tell me about waxing, lash and brow services."
+      }
+    ],
+    "byTopic": {
+      "injectables": [
+        {
+          "label": "Botox",
+          "message": "Tell me about Botox."
+        },
+        {
+          "label": "Dysport",
+          "message": "Tell me about Dysport."
+        },
+        {
+          "label": "Dermal fillers",
+          "message": "Tell me about Juvéderm and Restylane fillers."
+        },
+        {
+          "label": "Sculptra",
+          "message": "Tell me about Sculptra."
+        }
+      ]
+    }
+  },
   "locations": [
     {
       "name": "Reno",
